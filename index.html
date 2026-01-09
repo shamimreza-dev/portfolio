@@ -522,7 +522,7 @@
             border-radius: 1rem;
         }
 
-        /* Projects Section */
+    /* Projects Section */
         .projects {
             background: var(--light);
         }
@@ -540,6 +540,9 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: 520px; /* Fixed card height */
         }
 
         .project-card:hover {
@@ -551,13 +554,24 @@
             height: 200px;
             overflow: hidden;
             position: relative;
+            background: var(--light); /* Optional: background for padded area */
+        }
+
+        .image-container {
+            padding: 20px; /* Padding around the image */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .project-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Changed from cover to contain to show full image */
             transition: transform 0.5s ease;
+            max-width: 100%;
+            max-height: 100%;
         }
 
         .project-card:hover .project-image img {
@@ -565,7 +579,10 @@
         }
 
         .project-content {
-            padding: 2rem;
+            padding: 1.5rem;
+            flex: 1; /* Takes remaining space */
+            display: flex;
+            flex-direction: column;
         }
 
         .project-title {
@@ -578,6 +595,7 @@
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
             line-height: 1.6;
+            flex: 1; /* Pushes tags and button to bottom */
         }
 
         .project-tags {
@@ -587,6 +605,10 @@
             margin-bottom: 1.5rem;
         }
 
+        .btn {
+            margin-top: auto; /* Pushes button to bottom */
+            align-self: flex-start; /* Aligns button to start */
+        }
         .tag {
             background: rgba(37, 99, 235, 0.1);
             color: var(--primary);
@@ -993,10 +1015,10 @@
                             <div class="stat-number">20+</div>
                             <div class="stat-label">Projects</div>
                         </div>
-                        <div class="stat-item">
+                        <!-- <div class="stat-item">
                             <div class="stat-number">100%</div>
                             <div class="stat-label">Success Rate</div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="hero-image">
@@ -1180,9 +1202,35 @@
                 <h2>Recent Projects</h2>
             </div>
             <div class="projects-grid">
+
+
+                 <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-container">
+                            <img src="images/connect.png" alt="DCRMS">
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">University Collaboration Management System</h3>
+                        <p class="project-description">
+                            University collaboration platform streamlining global partnerships through email campaign management, dedicated university portals, communication tracking, and workflow automation.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">React 19</span>
+                            <span class="tag">Laravel 12</span>
+                            <span class="tag">Email Campaigns</span>
+                            <span class="tag">University Portals</span>
+                            <span class="tag">Workflow Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Campora Platform">
+                        <div class="image-container">
+                            <img src="images/campora.png" alt="Campora Platform">
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Campora Platform</h3>
@@ -1202,37 +1250,18 @@
                     </div>
                 </div>
 
+               
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="DCRMS">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Digital Content Repository</h3>
-                        <p class="project-description">
-                            Comprehensive platform managing 4000+ digital learning materials for educational 
-                            institutions under Sheikh Russel School of Future project.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Laravel</span>
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Azure</span>
+                        <div class="image-container">
+                            <img src="images/govt.png" alt="Government Automation">
                         </div>
-                        <a href="http://digitalcontent.gov.bd/" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-external-link-alt"></i> View Project
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1516549655669-df565bc7c6b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Government Automation">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Government Automation System</h3>
                         <p class="project-description">
                             Microservice architecture serving 17 organizations with 35,000+ government offices. 
-                            Streamlining operations for Ministry of Social Service.
+                            Streamlining operations for Ministry of Agriculture.
                         </p>
                         <div class="project-tags">
                             <span class="tag">Laravel</span>
@@ -1266,9 +1295,7 @@
                         <h3>Senior Software Engineer</h3>
                         <div class="company">Revinr Limited</div>
                         <ul>
-                            <li>Architecting scalable microservices and cloud-native applications</li>
-                            <li>Leading development teams and implementing best practices</li>
-                            <li>Designing CI/CD pipelines and DevOps workflows</li>
+                           <li>Leading development teams and implementing engineering best practices</li> <li>Architecting scalable application solutions and system designs</li> <li>Designing robust application architectures and technical solutions</li>
                         </ul>
                     </div>
                 </div>
